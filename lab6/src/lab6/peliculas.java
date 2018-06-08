@@ -17,7 +17,7 @@ public class peliculas {
     private String categoria;
     private ArrayList<String> idiomas=new ArrayList();
     private ArrayList<String> subtitulos=new ArrayList();
-    private String duracion;
+    private int duracion;
     private int rating;
     private ArrayList<String> comentarios=new ArrayList();
     private String productora;
@@ -27,7 +27,7 @@ public class peliculas {
     public peliculas() {
     }
 
-    public peliculas(String ID, String nombre, String categoria, String duracion, int rating, String productora, String director) {
+    public peliculas(String ID, String nombre, String categoria, int duracion, int rating, String productora, String director) {
         this.ID = ID;
         this.nombre = nombre;
         this.categoria = categoria;
@@ -77,13 +77,15 @@ public class peliculas {
         this.subtitulos = subtitulos;
     }
 
-    public String getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
+
+    
 
     public int getRating() {
         return rating;
