@@ -5,10 +5,6 @@
  */
 package lab6;
 
-/**
- *
- * @author david
- */
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -20,21 +16,21 @@ import java.util.Scanner;
  *
  * @author david
  */
-public class administrarpersonas {
+public class administrarpeliculas {
 
-    private ArrayList<usuarios> listapersonas = new ArrayList();
+    private ArrayList<peliculas> listapeliculas = new ArrayList();
     private File archivo = null;
 
-    public administrarpersonas(String path) {
+    public administrarpeliculas(String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<usuarios> getListapersonas() {
-        return listapersonas;
+    public ArrayList<peliculas> getListapeliculas() {
+        return listapeliculas;
     }
 
-    public void setListapersonas(ArrayList<usuarios> listapersonas) {
-        this.listapersonas = listapersonas;
+    public void setListapeliculas(ArrayList<peliculas> listapeliculas) {
+        this.listapeliculas = listapeliculas;
     }
 
     public File getArchivo() {
@@ -45,27 +41,17 @@ public class administrarpersonas {
         this.archivo = archivo;
     }
 
-    @Override
-    public String toString() {
-        return "listar ppersonas= " + listapersonas;
+    public void setpeliculas(peliculas p) {
+        this.listapeliculas.add(p);
     }
 
-    public void setpersonas(usuarios p) {
-        this.listapersonas.add(p);
-    }
-
-    public void escribirarchivo() throws IOException {
+    public void escribirarchivop() throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
-            for (usuarios t : listapersonas) {
-                bw.write(t.getCorreo() + ";");
-                bw.write(t.getFnacimiento() + ";");
-                bw.write(t.getTarjeta() + ";");
-                bw.write(t.getContra()+";");
-                for (peliculas h : t.getP()) {
+            for (peliculas h : listapeliculas) {
                     bw.write(h.getID()+",");
                     bw.write(h.getNombre()+",");
                     bw.write(h.getCategoria()+",");
@@ -74,35 +60,23 @@ public class administrarpersonas {
                     bw.write(h.getProductora()+",");
                     bw.write(h.getDirector()+",");
                 }
-                for (series s : t.getS()) {
-                    bw.write(s.getID()+".");
-                    bw.write(s.getNombre()+".");
-                    bw.write(s.getNtemporadas()+".");
-                    bw.write(s.getCategoria()+".");
-                    bw.write(s.getDuracion()+".");
-                    bw.write(s.getRating()+".");
-                    bw.write(s.getProductora()+".");
-                    bw.write(s.getDirector()+".");
-                }
-            } 
-
-            bw.flush();
-
         } catch (Exception e) {
+            
         }
-        bw.close();
-        fw.close();
     }
-
-    public void cargararchivo() {
+    public void cargararchivop() {
         Scanner sc = null;
-        listapersonas = new ArrayList();
+        listapeliculas = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
                 sc.useDelimiter(";");
                 while (sc.hasNext()) {
-                    String c, f, t,cs;
+                    String I,N,C,P,D;
+                    int Du,R;
+                    ArrayList<peliculas> pelis=new ArrayList();
+                    
+                    /*String c, f, t,cs;
                     ArrayList<peliculas> temp=new ArrayList();
                     ArrayList<series> temps=new ArrayList();
                     c=sc.next();
@@ -118,14 +92,12 @@ public class administrarpersonas {
                     s3.useDelimiter(".");
                     while (s3.hasNext()) {
                         temps.add(new series(s3.next(), s3.next(),s3.nextInt(), s3.next(),s3.next(),s3.nextInt(),s3.next(),s3.next()));
-                    }
-                    listapersonas.add(new usuarios(c, f, t,cs));
-                    listapersonas.get(listapersonas.size()-1).setP(temp);
-                    listapersonas.get(listapersonas.size()-1).setS(temps);
+                    }*/
                 }
             } catch (Exception e) {
             }
             sc.close();
         }
     }
+
 }
