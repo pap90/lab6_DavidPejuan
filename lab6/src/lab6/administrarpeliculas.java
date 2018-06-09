@@ -60,6 +60,7 @@ public class administrarpeliculas {
                     bw.write(h.getProductora()+",");
                     bw.write(h.getDirector()+",");
                 }
+            bw.flush();
         } catch (Exception e) {
             
         }
@@ -83,11 +84,11 @@ public class administrarpeliculas {
                     P=sc.next();
                     D=sc.next();
                     listapeliculas.add(new peliculas(I, N, C, Du, R, P, D));
+                    
                 }
             } catch (Exception e) {
             }
             sc.close();
         }
-    }
-
+    } 
 }

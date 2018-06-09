@@ -51,13 +51,13 @@ public class administrarseries {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
             for (series h : listaseries) {
-                    bw.write(h.getID()+",");
-                    bw.write(h.getNombre()+",");
-                    bw.write(h.getCategoria()+",");
-                    bw.write(h.getDuracion()+",");
-                    bw.write(h.getRating()+",");
-                    bw.write(h.getProductora()+",");
-                    bw.write(h.getDirector()+",");
+                    bw.write(h.getID()+".");
+                    bw.write(h.getNombre()+".");
+                    bw.write(h.getCategoria()+".");
+                    bw.write(h.getDuracion()+".");
+                    bw.write(h.getRating()+".");
+                    bw.write(h.getProductora()+".");
+                    bw.write(h.getDirector()+".");
                 }
         } catch (Exception e) {
             

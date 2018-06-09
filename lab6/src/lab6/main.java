@@ -62,9 +62,9 @@ public class main extends javax.swing.JFrame {
         tf_catp = new javax.swing.JTextField();
         tf_productorap = new javax.swing.JTextField();
         tf_duracionp = new javax.swing.JTextField();
-        cb_rating = new javax.swing.JComboBox<>();
         tf_directorap = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        tf_rating = new javax.swing.JTextField();
         jd_agregarserie = new javax.swing.JDialog();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -233,9 +233,12 @@ public class main extends javax.swing.JFrame {
 
         jLabel17.setText("directora");
 
-        cb_rating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-
         jButton5.setText("Guardar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_agregarpeliLayout = new javax.swing.GroupLayout(jd_agregarpeli.getContentPane());
         jd_agregarpeli.getContentPane().setLayout(jd_agregarpeliLayout);
@@ -260,8 +263,8 @@ public class main extends javax.swing.JFrame {
                             .addComponent(tf_catp)
                             .addComponent(tf_productorap)
                             .addComponent(tf_duracionp)
-                            .addComponent(cb_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_directorap, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
+                            .addComponent(tf_directorap, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(tf_rating)))
                     .addGroup(jd_agregarpeliLayout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addGroup(jd_agregarpeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +298,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarpeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(cb_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarpeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -548,6 +551,20 @@ public class main extends javax.swing.JFrame {
         jd_agregarserie.setVisible(true);
     }//GEN-LAST:event_jButton6MouseClicked
 
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            administrarpeliculas ap = new administrarpeliculas("./peliculas.txt");
+            peliculas u = new peliculas(tf_ID.getText(),tf_nombrep.getText(), tf_catp.getText(),Integer.parseInt(tf_duracionp.getText()) , Integer.parseInt(tf_rating.getText()), tf_productorap.getText(), tf_directorap.getText());
+            ap.cargararchivop();
+            ap.setpeliculas(u);
+            ap.escribirarchivop();
+        } catch (IOException ex) {
+            System.out.println("fallo");
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -584,7 +601,6 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb_rating;
     private javax.swing.JComboBox<String> cb_rating1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -642,6 +658,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombrep1;
     private javax.swing.JTextField tf_productorap;
     private javax.swing.JTextField tf_productorap1;
+    private javax.swing.JTextField tf_rating;
     private javax.swing.JTextField tf_tarjetar;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
