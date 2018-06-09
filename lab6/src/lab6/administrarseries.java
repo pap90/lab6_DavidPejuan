@@ -16,21 +16,20 @@ import java.util.Scanner;
  *
  * @author david
  */
-public class administrarpeliculas {
-
-    private ArrayList<peliculas> listapeliculas = new ArrayList();
+public class administrarseries {
+    private ArrayList<series> listaseries = new ArrayList();
     private File archivo = null;
 
-    public administrarpeliculas(String path) {
+    public administrarseries(String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<peliculas> getListapeliculas() {
-        return listapeliculas;
+    public ArrayList<series> getListaseries() {
+        return listaseries;
     }
 
-    public void setListapeliculas(ArrayList<peliculas> listapeliculas) {
-        this.listapeliculas = listapeliculas;
+    public void setListaseries(ArrayList<series> listaseries) {
+        this.listaseries = listaseries;
     }
 
     public File getArchivo() {
@@ -41,17 +40,17 @@ public class administrarpeliculas {
         this.archivo = archivo;
     }
 
-    public void setpeliculas(peliculas p) {
-        this.listapeliculas.add(p);
+    public void setseries(series p) {
+        this.listaseries.add(p);
     }
 
-    public void escribirarchivop() throws IOException {
+    public void escribirarchivos() throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
-            for (peliculas h : listapeliculas) {
+            for (series h : listaseries) {
                     bw.write(h.getID()+",");
                     bw.write(h.getNombre()+",");
                     bw.write(h.getCategoria()+",");
@@ -64,9 +63,9 @@ public class administrarpeliculas {
             
         }
     }
-    public void cargararchivop() {
+    public void cargararchivos() {
         Scanner sc = null;
-        listapeliculas = new ArrayList();
+        listaseries = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
@@ -74,7 +73,7 @@ public class administrarpeliculas {
                 while (sc.hasNext()) {
                     String I,N,C,P,D;
                     int Du,R;
-                    ArrayList<peliculas> pelis=new ArrayList();
+                    ArrayList<series> series=new ArrayList();
                     I=sc.next();
                     N=sc.next();
                     C=sc.next();
@@ -82,12 +81,10 @@ public class administrarpeliculas {
                     R=sc.nextInt();
                     P=sc.next();
                     D=sc.next();
-                    listapeliculas.add(new peliculas(I, N, C, Du, R, P, D));
                 }
             } catch (Exception e) {
             }
             sc.close();
         }
     }
-
 }
