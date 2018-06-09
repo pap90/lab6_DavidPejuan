@@ -59,6 +59,7 @@ public class administrarseries {
                     bw.write(h.getProductora()+".");
                     bw.write(h.getDirector()+".");
                 }
+            bw.flush();
         } catch (Exception e) {
             
         }

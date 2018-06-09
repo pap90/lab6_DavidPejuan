@@ -74,16 +74,16 @@ public class main extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        tf_ID1 = new javax.swing.JTextField();
-        tf_nombrep1 = new javax.swing.JTextField();
-        tf_catp1 = new javax.swing.JTextField();
-        tf_productorap1 = new javax.swing.JTextField();
-        tf_duracionp1 = new javax.swing.JTextField();
-        cb_rating1 = new javax.swing.JComboBox<>();
-        tf_directorap1 = new javax.swing.JTextField();
+        tf_IDs = new javax.swing.JTextField();
+        tf_nombres = new javax.swing.JTextField();
+        tf_cats = new javax.swing.JTextField();
+        tf_productoras = new javax.swing.JTextField();
+        tf_duracions = new javax.swing.JTextField();
+        tf_directors = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_ntemp = new javax.swing.JTextField();
+        tf_ratings = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -231,7 +231,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel16.setText("productora");
 
-        jLabel17.setText("directora");
+        jLabel17.setText("director");
 
         jButton5.setText("Guardar");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -327,9 +327,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel24.setText("productora");
 
-        jLabel25.setText("directora");
-
-        cb_rating1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jLabel25.setText("director");
 
         jButton7.setText("Guardar");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,35 +349,34 @@ public class main extends javax.swing.JFrame {
                         .addComponent(jLabel18))
                     .addGroup(jd_agregarserieLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_agregarserieLayout.createSequentialGroup()
+                                .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel25))
+                                .addGap(183, 183, 183)
+                                .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_nombres)
+                                    .addComponent(tf_cats)
+                                    .addComponent(tf_productoras)
+                                    .addComponent(tf_duracions)
+                                    .addComponent(tf_directors, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(tf_ratings)))
                             .addGroup(jd_agregarserieLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(jButton7))
-                            .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_agregarserieLayout.createSequentialGroup()
-                                    .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jLabel21)
-                                        .addComponent(jLabel22)
-                                        .addComponent(jLabel23)
-                                        .addComponent(jLabel24)
-                                        .addComponent(jLabel25))
-                                    .addGap(183, 183, 183)
-                                    .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tf_nombrep1)
-                                        .addComponent(tf_catp1)
-                                        .addComponent(tf_productorap1)
-                                        .addComponent(tf_duracionp1)
-                                        .addComponent(cb_rating1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tf_directorap1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
-                                .addGroup(jd_agregarserieLayout.createSequentialGroup()
-                                    .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel19)
-                                        .addComponent(jLabel26))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tf_ID1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                        .addComponent(jTextField1)))))))
+                                .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel26))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_IDs, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(tf_ntemp)))))
+                    .addGroup(jd_agregarserieLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jButton7)))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jd_agregarserieLayout.setVerticalGroup(
@@ -389,39 +386,39 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_IDs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
                 .addGap(12, 12, 12)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_ntemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(tf_nombrep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(tf_catp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_cats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(tf_duracionp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_duracions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(cb_rating1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_ratings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(tf_productorap1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_productoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_agregarserieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(tf_directorap1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(tf_directors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -540,7 +537,16 @@ public class main extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        
+        try {
+            // TODO add your handling code here:
+            administrarseries ap = new administrarseries("./series.txt");
+            series u = new series(tf_IDs.getText(),tf_nombres.getText(), Integer.parseInt(tf_ntemp.getText()),tf_cats.getText(),tf_duracions.getText(), Integer.parseInt(tf_ratings.getText()), tf_productoras.getText(), tf_directors.getText());
+            ap.cargararchivos();
+            ap.setseries(u);
+            ap.escribirarchivos();
+        } catch (IOException ex) {
+            System.out.println("fallo");
+        }
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -601,7 +607,6 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb_rating1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -637,28 +642,29 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_agregarpeli;
     private javax.swing.JDialog jd_agregarserie;
     private javax.swing.JDialog jd_registro;
     private javax.swing.JTextField tf_ID;
-    private javax.swing.JTextField tf_ID1;
+    private javax.swing.JTextField tf_IDs;
     private javax.swing.JTextField tf_catp;
-    private javax.swing.JTextField tf_catp1;
+    private javax.swing.JTextField tf_cats;
     private javax.swing.JPasswordField tf_contra;
     private javax.swing.JPasswordField tf_contraseñar;
     private javax.swing.JTextField tf_correor;
     private javax.swing.JTextField tf_directorap;
-    private javax.swing.JTextField tf_directorap1;
+    private javax.swing.JTextField tf_directors;
     private javax.swing.JTextField tf_duracionp;
-    private javax.swing.JTextField tf_duracionp1;
+    private javax.swing.JTextField tf_duracions;
     private javax.swing.JTextField tf_fechar;
     private javax.swing.JTextField tf_nombrep;
-    private javax.swing.JTextField tf_nombrep1;
+    private javax.swing.JTextField tf_nombres;
+    private javax.swing.JTextField tf_ntemp;
     private javax.swing.JTextField tf_productorap;
-    private javax.swing.JTextField tf_productorap1;
+    private javax.swing.JTextField tf_productoras;
     private javax.swing.JTextField tf_rating;
+    private javax.swing.JTextField tf_ratings;
     private javax.swing.JTextField tf_tarjetar;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
