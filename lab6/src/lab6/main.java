@@ -5,9 +5,18 @@
  */
 package lab6;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /**
  *
@@ -84,6 +93,10 @@ public class main extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         tf_ntemp = new javax.swing.JTextField();
         tf_ratings = new javax.swing.JTextField();
+        jd_eliminarseries = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_eseries = new javax.swing.JTree();
+        jButton10 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -180,6 +193,11 @@ public class main extends javax.swing.JFrame {
         });
 
         jButton8.setText("Eliminar serie");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jButton9.setText("Eliminar pelicula");
 
@@ -421,6 +439,38 @@ public class main extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Series");
+        jt_eseries.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_eseries.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jt_eseriesComponentShown(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jt_eseries);
+
+        jButton10.setText("eliminar");
+
+        javax.swing.GroupLayout jd_eliminarseriesLayout = new javax.swing.GroupLayout(jd_eliminarseries.getContentPane());
+        jd_eliminarseries.getContentPane().setLayout(jd_eliminarseriesLayout);
+        jd_eliminarseriesLayout.setHorizontalGroup(
+            jd_eliminarseriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarseriesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
+        );
+        jd_eliminarseriesLayout.setVerticalGroup(
+            jd_eliminarseriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarseriesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_eliminarseriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton10)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -540,7 +590,7 @@ public class main extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             administrarseries ap = new administrarseries("./series.txt");
-            series u = new series(tf_IDs.getText(),tf_nombres.getText(), Integer.parseInt(tf_ntemp.getText()),tf_cats.getText(),tf_duracions.getText(), Integer.parseInt(tf_ratings.getText()), tf_productoras.getText(), tf_directors.getText());
+            series u = new series(tf_IDs.getText(), tf_nombres.getText(), Integer.parseInt(tf_ntemp.getText()), tf_cats.getText(), tf_duracions.getText(), Integer.parseInt(tf_ratings.getText()), tf_productoras.getText(), tf_directors.getText());
             ap.cargararchivos();
             ap.setseries(u);
             ap.escribirarchivos();
@@ -562,7 +612,7 @@ public class main extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             administrarpeliculas ap = new administrarpeliculas("./peliculas.txt");
-            peliculas u = new peliculas(tf_ID.getText(),tf_nombrep.getText(), tf_catp.getText(),Integer.parseInt(tf_duracionp.getText()) , Integer.parseInt(tf_rating.getText()), tf_productorap.getText(), tf_directorap.getText());
+            peliculas u = new peliculas(tf_ID.getText(), tf_nombrep.getText(), tf_catp.getText(), Integer.parseInt(tf_duracionp.getText()), Integer.parseInt(tf_rating.getText()), tf_productorap.getText(), tf_directorap.getText());
             ap.cargararchivop();
             ap.setpeliculas(u);
             ap.escribirarchivop();
@@ -570,6 +620,59 @@ public class main extends javax.swing.JFrame {
             System.out.println("fallo");
         }
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        Scanner sc = null;
+        jd_eliminarseries.setModal(true);
+        jd_eliminarseries.pack();
+        jd_eliminarseries.setLocationRelativeTo(this);
+        jd_eliminarseries.setVisible(true);
+        FileReader lectorArchivo;
+        ArrayList<series> s = new ArrayList();
+        ArrayList<series> listaseries = new ArrayList();
+        try {
+            sc = new Scanner("./series.txt");
+            sc.useDelimiter(";");
+            while (sc.hasNext()) {
+                String I, N, C, P, D, Du;
+                int T, R;
+                I = sc.next();
+                N = sc.next();
+                T = sc.nextInt();
+                C = sc.next();
+                Du = sc.next();
+                R = sc.nextInt();
+                P = sc.next();
+                D = sc.next();
+                listaseries.add(new series(I, N, T, C, Du, R, P, D));
+            }
+        } catch (Exception e) {
+        }
+        sc.close();
+        DefaultTreeModel m = (DefaultTreeModel) jt_eseries.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+        String I, N, C, P, D, Du;
+        int T, R;
+        for (series y : listaseries) {
+            I=y.getID();
+            N=y.getNombre();
+            T=y.getNtemporadas();
+            C=y.getCategoria();
+            Du=y.getDuracion();
+            R=y.getRating();
+            P=y.getProductora();
+            D=y.getDirector();
+            DefaultMutableTreeNode p=new DefaultMutableTreeNode(new series(I, N, T, C, Du, R, P, D));
+            raiz.add(p);
+        }
+        
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jt_eseriesComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jt_eseriesComponentShown
+        // TODO add your handling code here:
+        System.out.println("fox");
+    }//GEN-LAST:event_jt_eseriesComponentShown
 
     /**
      * @param args the command line arguments
@@ -608,6 +711,7 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -642,10 +746,13 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_agregarpeli;
     private javax.swing.JDialog jd_agregarserie;
+    private javax.swing.JDialog jd_eliminarseries;
     private javax.swing.JDialog jd_registro;
+    private javax.swing.JTree jt_eseries;
     private javax.swing.JTextField tf_ID;
     private javax.swing.JTextField tf_IDs;
     private javax.swing.JTextField tf_catp;

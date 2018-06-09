@@ -72,16 +72,18 @@ public class administrarseries {
                 sc = new Scanner(archivo);
                 sc.useDelimiter(";");
                 while (sc.hasNext()) {
-                    String I,N,C,P,D;
-                    int Du,R;
+                    String I,N,C,P,D,Du;
+                    int T,R;
                     ArrayList<series> series=new ArrayList();
                     I=sc.next();
                     N=sc.next();
+                    T=sc.nextInt();
                     C=sc.next();
-                    Du=sc.nextInt();
+                    Du=sc.next();
                     R=sc.nextInt();
                     P=sc.next();
                     D=sc.next();
+                    listaseries.add(new series(I, N, T, C, Du, R, P, D));
                 }
             } catch (Exception e) {
             }
